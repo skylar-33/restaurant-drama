@@ -72,4 +72,4 @@ python3    $S/review.py --brand natur assets/<项目>/视频/*.mp4     # 联系�
 python3 -I $S/assemble.py assets/<项目>/timeline.json             # 粗剪
 ```
 - job 名不含 `_v`；改提示词后 `canvas_setup.py --sync-prompts` 再生成。视频生成走后台，等通知。
-- 规格、价格取官网并注明取价日期；AI 不画产品性能测试。
+- 规格、价格取官网；AI 不画产品性能测试。
