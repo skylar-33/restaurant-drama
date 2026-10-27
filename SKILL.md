@@ -20,6 +20,8 @@ description: 餐馆剧情 skill —— Naturestaurant（NRT）纯 AI 剧情短�
 
 样板：P04 吸血鬼叉子（`assets/P04-吸血鬼叉子/project.json`、`timeline_v2.json`，分镜 `content/分镜/P04-吸血鬼叉子-分镜.md`）；光影样板：V07 婚礼（`content/分镜/V07-设定集.md`、`V07-提示词.md`）。复盘：`knowledge/07-AI视频制作复盘.md`。项目规则仍以 `CLAUDE.md` 为准。
 
+**没有 NRT 项目文件夹时**（同事在一个空文件夹里开工）：把当前目录当项目根目录，`assets/<编号>-<名>/`、`content/分镜/` 用到时再建；`knowledge/`、`CLAUDE.md`、待办、工作记录不存在就跳过，不要新建；商品数据和模特三视图用本 skill 的 `data/`；上面的 P04、V07 样板不在仓库里，没有就按本文件和 `references/` 的规则做。
+
 ## 阶段与关口
 
 每阶段做完、用户确认（或用户说了「自己做完别问我」）才进下一阶段。**改了前面的设定，回头同步所有依赖它的提示词和分镜。** 每阶段先按 routing.md 读对应原文，再动笔。
@@ -60,7 +62,7 @@ assets/<编号>-<名>/
 ```
 
 ```bash
-S=.claude/skills/restaurant-drama/scripts   # Codex 装在 .agents/skills/ 下时改成 .agents/skills/restaurant-drama/scripts
+S=<本 skill 所在目录>/scripts   # 例：.claude/skills/restaurant-drama/scripts、~/.agents/skills/restaurant-drama/scripts
 python3 -I $S/canvas_setup.py assets/<项目> [--sync-prompts]   # 建/补画布节点，打印每段图片编号核对
 python3 -I $S/canvas_gen.py   assets/<项目> R1 R2                 # 默认参考图 1 张、视频 2 候选；首帧加 --n 2；一次最多 3 个视频候选
 python3 -I $S/plan_annotate.py assets/<项目> [--grid]             # 俯视图坐标网格 / 动线标注
