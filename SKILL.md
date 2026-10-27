@@ -16,6 +16,7 @@ description: 餐馆剧情 skill —— Naturestaurant（NRT）纯 AI 剧情短�
 | `vendor/DirectorSKILL/`、`vendor/seedance-tvc-director/` | 收录的原文（MIT） |
 | 小逻 | 本机 `~/Downloads/AI视频制作-skill与流程包/3-skills/外部-GitHub/XiaoLuo-AI-Drama-Skill/`（未声明许可，只引用不复制） |
 | `scripts/` | 画布搭建 / 生成 / 动线标注 / 审片 / 粗剪 |
+| `data/` | 前置知识：官网商品目录和全量商品数据、6 人数字人三视图；项目里没有 `knowledge/06-官网商品目录.md`、`assets/数字人三视图/` 时用这里的（见 `data/README.md`） |
 
 样板：P04 吸血鬼叉子（`assets/P04-吸血鬼叉子/project.json`、`timeline_v2.json`，分镜 `content/分镜/P04-吸血鬼叉子-分镜.md`）；光影样板：V07 婚礼（`content/分镜/V07-设定集.md`、`V07-提示词.md`）。复盘：`knowledge/07-AI视频制作复盘.md`。项目规则仍以 `CLAUDE.md` 为准。
 
@@ -59,7 +60,7 @@ assets/<编号>-<名>/
 ```
 
 ```bash
-S=.claude/skills/restaurant-drama/scripts
+S=.claude/skills/restaurant-drama/scripts   # Codex 装在 .agents/skills/ 下时改成 .agents/skills/restaurant-drama/scripts
 python3 -I $S/canvas_setup.py assets/<项目> [--sync-prompts]   # 建/补画布节点，打印每段图片编号核对
 python3 -I $S/canvas_gen.py   assets/<项目> R1 R2                 # 默认参考图 1 张、视频 2 候选；首帧加 --n 2；一次最多 3 个视频候选
 python3 -I $S/plan_annotate.py assets/<项目> [--grid]             # 俯视图坐标网格 / 动线标注
